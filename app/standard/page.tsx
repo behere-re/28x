@@ -1,3 +1,10 @@
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: '28x Time Standard v0.1',
+  description: 'The complete specification for the 28x temporal standard.',
+}
+
 export default function StandardPage() {
   return (
     <div className="prose">

@@ -1,3 +1,10 @@
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Why Now: Temporal Integrity in the Age of Intelligent Systems',
+  description: 'Why a new time standard matters in the age of intelligent systems.',
+}
+
 export default function WhyNowPage() {
   return (
     <div className="prose">

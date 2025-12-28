@@ -1,3 +1,10 @@
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Time Literacy: Why Education Must Teach Rhythm Before Schedules',
+  description: 'A case for temporal literacy in education.',
+}
+
 export default function TimeLiteracyPage() {
   return (
     <div className="prose">

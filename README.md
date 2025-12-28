@@ -25,7 +25,6 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 - Next.js 14 (App Router)
 - TypeScript
 - Tailwind CSS
-- MDX for long-form content
 
 ## Design Principles
 

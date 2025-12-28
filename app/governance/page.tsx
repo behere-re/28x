@@ -1,3 +1,10 @@
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Governance',
+  description: 'Stewardship, versioning, and openness of the 28x standard.',
+}
+
 export default function GovernancePage() {
   return (
     <div className="prose">
