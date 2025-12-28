@@ -3,6 +3,14 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Governance',
   description: 'Stewardship, versioning, and openness of the 28x standard.',
+  openGraph: {
+    title: 'Governance',
+    description: 'Stewardship, versioning, and openness of the 28x standard.',
+    url: 'https://28x.org/governance',
+  },
+  alternates: {
+    canonical: 'https://28x.org/governance',
+  },
 }
 
 export default function GovernanceLayout({

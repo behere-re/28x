@@ -4,8 +4,42 @@ import './globals.css'
 import Navigation from '@/components/Navigation'
 
 export const metadata: Metadata = {
-  title: '28x — An Open Temporal Standard',
+  metadataBase: new URL('https://28x.org'),
+  title: {
+    default: '28x — An Open Temporal Standard',
+    template: '%s | 28x',
+  },
   description: 'A regular, lunar-aligned calendar system for the age of intelligent systems.',
+  keywords: ['28x', 'calendar', 'temporal standard', 'lunar calendar', 'time standard', 'calendar system'],
+  authors: [{ name: '28x Standard' }],
+  creator: '28x Standard',
+  openGraph: {
+    title: '28x — An Open Temporal Standard',
+    description: 'A regular, lunar-aligned calendar system for the age of intelligent systems.',
+    type: 'website',
+    url: 'https://28x.org',
+    siteName: '28x',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '28x — An Open Temporal Standard',
+    description: 'A regular, lunar-aligned calendar system for the age of intelligent systems.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: 'https://28x.org',
+  },
 }
 
 export default function RootLayout({

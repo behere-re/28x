@@ -1,6 +1,18 @@
-'use client'
-
 import Link from 'next/link'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: '28x — An Open Temporal Standard',
+  description: 'A regular, lunar-aligned calendar system for the age of intelligent systems. 13 × 28 days + 1 intercalary day, beginning on the first 28-day New Year following the March equinox of 2026.',
+  openGraph: {
+    title: '28x — An Open Temporal Standard',
+    description: 'A regular, lunar-aligned calendar system for the age of intelligent systems.',
+    url: 'https://28x.org',
+  },
+  alternates: {
+    canonical: 'https://28x.org',
+  },
+}
 
 export default function Home() {
   return (
@@ -91,4 +103,3 @@ export default function Home() {
     </div>
   )
 }
-

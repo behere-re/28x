@@ -3,6 +3,18 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Convert',
   description: 'Date conversion tools for the 28x standard.',
+  openGraph: {
+    title: 'Convert',
+    description: 'Date conversion tools for the 28x standard.',
+    url: 'https://28x.org/convert',
+  },
+  alternates: {
+    canonical: 'https://28x.org/convert',
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
 }
 
 export default function ConvertPage() {

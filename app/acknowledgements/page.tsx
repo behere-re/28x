@@ -3,6 +3,14 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Acknowledgements',
   description: 'Intellectual and cultural precursors to the 28x Time Standard.',
+  openGraph: {
+    title: 'Acknowledgements',
+    description: 'Intellectual and cultural precursors to the 28x Time Standard.',
+    url: 'https://28x.org/acknowledgements',
+  },
+  alternates: {
+    canonical: 'https://28x.org/acknowledgements',
+  },
 }
 
 export default function AcknowledgementsPage() {

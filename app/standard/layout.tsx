@@ -3,6 +3,14 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: '28x Time Standard v0.1',
   description: 'The complete specification for the 28x temporal standard.',
+  openGraph: {
+    title: '28x Time Standard v0.1',
+    description: 'The complete specification for the 28x temporal standard.',
+    url: 'https://28x.org/standard',
+  },
+  alternates: {
+    canonical: 'https://28x.org/standard',
+  },
 }
 
 export default function StandardLayout({
