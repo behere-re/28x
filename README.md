@@ -2,6 +2,10 @@
 
 The official website for the 28x open temporal standard.
 
+## Status
+
+Deployment-ready: All build errors resolved.
+
 ## Development
 
 ```bash
