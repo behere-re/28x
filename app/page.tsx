@@ -23,7 +23,7 @@ export default function Home() {
         </h1>
         <p className="text-xl text-gray-700 leading-relaxed max-w-2xl">
           A temporal standard that combines the regularity of fixed cycles with the natural rhythm of lunar months: 
-          13 × 28 days + 1 intercalary day, beginning on Gregorian 2026-03-20 (28X-0000-01-01).
+          13 × 28 days + 1 intercalary day out of time. Year 0000 begins at the Spring equinox of 2026.
         </p>
       </div>
 
