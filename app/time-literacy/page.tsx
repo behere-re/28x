@@ -10,7 +10,7 @@ export default function TimeLiteracyPage() {
     <div className="prose">
       <h1>Time Literacy: Why Education Must Teach Rhythm Before Schedules</h1>
 
-      <h2>The Scheduler's Fallacy</h2>
+      <h2>The Scheduler&apos;s Fallacy</h2>
       <p>
         Education has largely treated time as a scheduling problem. Students learn to read clocks, manage calendars, and navigate timetables—but they rarely learn to understand time itself. We teach the mechanics of telling time without teaching the principles that govern it: rhythm, periodicity, the relationship between natural cycles and human constructs.
       </p>
@@ -26,7 +26,7 @@ export default function TimeLiteracyPage() {
         Calendars are human attempts to capture and regularize these rhythms. But when we teach only the calendar—only the schedule—we divorce time from its natural foundations. Students learn to think of time as arbitrary: why does February have 28 days? Why do months have different lengths? Why do we add leap days?
       </p>
       <p>
-        The answer is always "because that's how the calendar works," which teaches that time is a convention, not a system with underlying logic.
+        The answer is always &quot;because that&apos;s how the calendar works,&quot; which teaches that time is a convention, not a system with underlying logic.
       </p>
 
       <h2>Teaching Systems, Not Conventions</h2>

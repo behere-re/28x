@@ -15,11 +15,11 @@ export default function WhyNowPage() {
         For centuries, humans have managed temporal complexity through calendars that accumulate irregularity. The Gregorian calendar, for all its utility, is a system of historical compromises: months of varying lengths, leap years that follow complex rules, and weeks that do not align cleanly with months or years. This irregularity is manageable when time is primarily a human concern, parsed by human minds and recorded by human hands.
       </p>
       <p>
-        But we are entering an era where time is increasingly a computational concern. Intelligent systems—whether artificial intelligence, distributed databases, or automated scheduling—process temporal data at scales and speeds that amplify the cognitive overhead of irregular calendars. A system that must constantly account for February's 28 days (or 29), or calculate which years are leap years, expends computational resources on edge cases rather than core logic.
+        But we are entering an era where time is increasingly a computational concern. Intelligent systems—whether artificial intelligence, distributed databases, or automated scheduling—process temporal data at scales and speeds that amplify the cognitive overhead of irregular calendars. A system that must constantly account for February&apos;s 28 days (or 29), or calculate which years are leap years, expends computational resources on edge cases rather than core logic.
       </p>
 
       <h2>The Cost of Edge Cases</h2>
-      <p>Every irregularity in a calendar system becomes an edge case in code. Consider the common task of calculating "30 days from today":</p>
+      <p>Every irregularity in a calendar system becomes an edge case in code. Consider the common task of calculating &quot;30 days from today&quot;:</p>
       <ul>
         <li>In the Gregorian calendar, this requires checking the current month, handling month boundaries, accounting for varying month lengths, and potentially crossing year boundaries with leap year considerations.</li>
         <li>In 28x, this calculation is trivial: add 30 to the day number, modulo 28, and increment the month if necessary. The algorithm is identical regardless of the starting date.</li>
@@ -58,7 +58,7 @@ export default function WhyNowPage() {
 
       <h2>Conclusion</h2>
       <p>
-        28x is not about rejecting the past or creating a "better" calendar for humans. It is about providing a clean, regular foundation for the computational systems that are becoming central to how we understand and interact with time. In the age of intelligent systems, temporal integrity means regularity, predictability, and simplicity—values that serve both machines and the humans who rely on them.
+        28x is not about rejecting the past or creating a &quot;better&quot; calendar for humans. It is about providing a clean, regular foundation for the computational systems that are becoming central to how we understand and interact with time. In the age of intelligent systems, temporal integrity means regularity, predictability, and simplicity—values that serve both machines and the humans who rely on them.
       </p>
     </div>
   )
