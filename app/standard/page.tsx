@@ -33,7 +33,7 @@ export default function StandardPage() {
       <p>The standard provides:</p>
       <ul>
         <li>A uniform calendar lattice (13 × 28 days)</li>
-        <li>A single Intercalary Day to complete the year</li>
+        <li>Intercalary days to maintain seasonal alignment</li>
         <li>A fixed epoch for absolute date representation</li>
         <li>A stable, machine-readable date format</li>
         <li>A basis for deterministic mapping between Gregorian and 28x dates</li>
@@ -46,7 +46,7 @@ export default function StandardPage() {
       <h2>2. Terms and Definitions</h2>
 
       <p>
-        <strong>28x Year:</strong> A year consisting of 13 moons of 28 days each, plus one Intercalary Day.
+        <strong>28x Year:</strong> A year consisting of 13 moons of 28 days each, plus Intercalary Days.
       </p>
 
       <p>
@@ -58,7 +58,11 @@ export default function StandardPage() {
       </p>
 
       <p>
-        <strong>Intercalary Day:</strong> A single day outside the moon/week lattice used to complete the year.
+        <strong>Intercalary Day (ID):</strong> A single day outside the moon/week lattice used to complete a standard year.
+      </p>
+
+      <p>
+        <strong>Leap Intercalary Day (LID):</strong> An additional day outside the moon/week lattice used in leap years to maintain seasonal alignment.
       </p>
 
       <p>
@@ -69,6 +73,10 @@ export default function StandardPage() {
         <strong>Epoch:</strong> The reference point from which all 28x dates are computed.
       </p>
 
+      <p>
+        <strong>Corresponding Gregorian Year:</strong> The Gregorian year in which 28X-YYYY-01-01 occurs.
+      </p>
+
       <h2>3. Calendar Structure</h2>
 
       <p>Each 28x year consists of:</p>
@@ -77,11 +85,15 @@ export default function StandardPage() {
         <li>28 days per moon</li>
         <li>7-day weeks</li>
         <li>364 structured days</li>
-        <li>1 Intercalary Day</li>
+        <li>1 Intercalary Day (ID)</li>
       </ul>
 
       <p>
-        <strong>Total: 365 days per 28x year</strong>
+        <strong>Standard year: 365 days (364 structured + 1 ID)</strong>
+      </p>
+
+      <p>
+        <strong>Leap year: 366 days (364 structured + 1 ID + 1 LID)</strong>
       </p>
 
       <h3>3.1 Regularity properties</h3>
@@ -89,7 +101,7 @@ export default function StandardPage() {
       <ul>
         <li>All moons are identical in length.</li>
         <li>The internal lattice is stable: moon boundaries and weekdays do not drift within the 28x system.</li>
-        <li>No leap-year mechanism exists in the core standard.</li>
+        <li>Leap-year mechanism maintains seasonal alignment (see §4).</li>
       </ul>
 
       <h2>4. Epoch</h2>
@@ -97,7 +109,11 @@ export default function StandardPage() {
       <h3>4.1 Epoch statement (normative)</h3>
 
       <p>
-        <strong>28X-0001-01-01</strong> begins on the first 28-day New Year occurring after the March equinox of 2026 (Gregorian).
+        Gregorian 2026-03-20 (UTC civil date) = <strong>28X-0000-01-01</strong>
+      </p>
+
+      <p>
+        Year 0000 is the first 28x year.
       </p>
 
       <p>
@@ -110,11 +126,30 @@ export default function StandardPage() {
         The epoch establishes a stable, absolute coordinate system for dates. Once the epoch is fixed, any date—past or future—may be expressed in 28x coordinates via deterministic computation.
       </p>
 
-      <h2>5. Intercalary Day</h2>
+      <h3>4.3 Leap-Year Rule (normative)</h3>
+
+      <p>
+        A 28x year is a leap year if its corresponding Gregorian year is a Gregorian leap year.
+      </p>
+
+      <p>
+        A Gregorian year is a leap year if it is:
+      </p>
+      <ul>
+        <li>divisible by 4</li>
+        <li>except if divisible by 100</li>
+        <li>except if divisible by 400</li>
+      </ul>
+
+      <p>
+        The corresponding Gregorian year is the Gregorian year in which 28X-YYYY-01-01 occurs.
+      </p>
+
+      <h2>5. Intercalary Days</h2>
 
       <h3>5.1 Placement (normative)</h3>
 
-      <p>The Intercalary Day occurs after:</p>
+      <p>Intercalary Days occur after:</p>
       <ul>
         <li>Moon 13, Day 28</li>
       </ul>
@@ -125,17 +160,25 @@ export default function StandardPage() {
       </ul>
 
       <p>
-        It is not assigned to any moon or week.
+        In a standard year, only the Intercalary Day (ID) occurs.
+      </p>
+
+      <p>
+        In a leap year, the Intercalary Day (ID) is followed immediately by the Leap Intercalary Day (LID).
+      </p>
+
+      <p>
+        Intercalary Days are not assigned to any moon or week and have no weekday.
       </p>
 
       <h3>5.2 Naming (normative and non-normative)</h3>
 
       <p>
-        <strong>Canonical name:</strong> Intercalary Day (normative)
+        <strong>Canonical names:</strong> Intercalary Day (ID), Leap Intercalary Day (LID) (normative)
       </p>
 
       <p>
-        <strong>Cultural alias:</strong> Day Out of Time (DOOT) (non-normative)
+        <strong>Cultural alias:</strong> Day Out of Time (DOOT) for Intercalary Day (non-normative)
       </p>
 
       <p>
@@ -161,24 +204,33 @@ export default function StandardPage() {
 
       <p>Example:</p>
       <p>
-        <code>28X-0001-03-14</code>
+        <code>28X-0000-03-14</code>
       </p>
 
       <h3>6.2 Intercalary Day representation (normative)</h3>
 
-      <p>Intercalary Day SHALL be represented as:</p>
+      <p>Intercalary Days SHALL be represented as:</p>
 
       <p>
-        <strong>28X-YYYY-ID</strong>
-      </p>
-
-      <p>Example:</p>
-      <p>
-        <code>28X-0001-ID</code>
+        <strong>28X-YYYY-ID</strong> (Intercalary Day)
       </p>
 
       <p>
-        Implementations MUST treat ID as outside the moon/week lattice.
+        <strong>28X-YYYY-LID</strong> (Leap Intercalary Day, leap years only)
+      </p>
+
+      <p>Examples:</p>
+      <ul>
+        <li><code>28X-0000-ID</code> (Intercalary Day in Year 0000)</li>
+        <li><code>28X-0004-LID</code> (Leap Intercalary Day in Year 0004, a leap year)</li>
+      </ul>
+
+      <p>
+        Implementations MUST treat ID and LID as outside the moon/week lattice.
+      </p>
+
+      <p>
+        LID occurs only in leap years and immediately follows ID.
       </p>
 
       <h3>6.3 Validation rules (normative)</h3>
@@ -187,7 +239,9 @@ export default function StandardPage() {
         <li>MM MUST be between 01 and 13 inclusive.</li>
         <li>DD MUST be between 01 and 28 inclusive.</li>
         <li>28X-YYYY-ID MUST NOT include MM or DD.</li>
-        <li>Intercalary Day MUST occur exactly once per 28x year.</li>
+        <li>28X-YYYY-LID MUST NOT include MM or DD.</li>
+        <li>Intercalary Day (ID) MUST occur exactly once per 28x year.</li>
+        <li>Leap Intercalary Day (LID) MUST occur exactly once per leap year and MUST NOT occur in non-leap years.</li>
       </ul>
 
       <h3>6.4 Year numbering and backdating (normative)</h3>
@@ -197,17 +251,17 @@ export default function StandardPage() {
       </p>
 
       <p>
-        Year numbering includes Year 0000.
+        Year numbering begins with Year 0000 at the epoch.
       </p>
 
       <p>
-        Years prior to Year 0001 SHALL be represented using a leading minus sign.
+        Years prior to Year 0000 SHALL be represented using a leading minus sign.
       </p>
 
       <p>Examples:</p>
       <ul>
-        <li><code>28X-0000-01-01</code></li>
-        <li><code>28X--0001-13-28</code></li>
+        <li><code>28X-0000-01-01</code> (epoch date)</li>
+        <li><code>28X--0001-13-28</code> (one year before epoch)</li>
       </ul>
 
       <p>
@@ -264,21 +318,21 @@ export default function StandardPage() {
         DOOT is a cultural name for the Intercalary Day.
       </p>
 
-      <h3>9.2 TAO Day</h3>
+      <h3>9.2 Tau Day</h3>
 
       <p>
-        TAO Day MAY be observed on Gregorian June 28 (6/28). This observance is purely symbolic and non-normative.
+        Tau Day MAY be observed on Moon 6, Day 28 (28X-YYYY-06-28). This observance is purely symbolic and non-normative.
       </p>
 
       <p>Properties (non-normative):</p>
       <ul>
-        <li>Numerically harmonic: 6 × 28 = 168 (six complete 28-day cycles)</li>
+        <li>Occurs on the 168th day of the structured calendar (6 × 28 = 168)</li>
         <li>Provides a convenient symbolic moment for reflection or recalibration</li>
         <li>Not mathematically tied to the midpoint of the 28x year lattice</li>
       </ul>
 
       <p>
-        TAO Day is excluded from 28x date computation and does not affect conversions or the canonical calendar structure.
+        Tau Day is excluded from 28x date computation and does not affect conversions or the canonical calendar structure.
       </p>
 
       <h2>10. Versioning and Stability</h2>
@@ -298,7 +352,7 @@ export default function StandardPage() {
       <ul>
         <li>The epoch definition</li>
         <li>The 13 × 28 lattice</li>
-        <li>The single Intercalary Day concept</li>
+        <li>The Intercalary Day concept and leap-year mechanism</li>
         <li>Backward compatibility for date representations</li>
       </ul>
 
@@ -316,6 +370,7 @@ export default function StandardPage() {
         <li>easy to validate</li>
         <li>easy to compute against once the conversion algorithm is implemented</li>
         <li>stable across decades</li>
+        <li>seasonally aligned through the leap-year mechanism</li>
       </ul>
     </div>
   )

@@ -60,11 +60,15 @@ export default function RootLayout({
               <p className="text-sm text-gray-600 mb-4">
                 28x is an open temporal standard. This site serves as its authoritative reference.
               </p>
-              <p className="text-sm text-gray-500">
+              <div className="flex items-center gap-4 text-sm text-gray-500">
                 <Link href="/acknowledgements" className="hover:text-gray-700 transition-colors">
                   Acknowledgements
                 </Link>
-              </p>
+                <span>•</span>
+                <a href="https://mjl.re" target="_blank" rel="noopener noreferrer" className="hover:text-gray-700 transition-colors">
+                  by mjl.re
+                </a>
+              </div>
             </div>
           </footer>
         </div>

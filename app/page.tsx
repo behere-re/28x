@@ -3,7 +3,7 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: '28x — An Open Temporal Standard',
-  description: 'A regular, lunar-aligned calendar system for the age of intelligent systems. 13 × 28 days + 1 intercalary day, beginning on the first 28-day New Year following the March equinox of 2026.',
+  description: 'A regular, lunar-aligned calendar system for the age of intelligent systems. 13 × 28 days + 1 intercalary day, beginning on Gregorian 2026-03-20 (28X-0000-01-01).',
   openGraph: {
     title: '28x — An Open Temporal Standard',
     description: 'A regular, lunar-aligned calendar system for the age of intelligent systems.',
@@ -23,7 +23,7 @@ export default function Home() {
         </h1>
         <p className="text-xl text-gray-700 leading-relaxed max-w-2xl">
           A temporal standard that combines the regularity of fixed cycles with the natural rhythm of lunar months: 
-          13 × 28 days + 1 intercalary day, beginning on the first 28-day New Year following the March equinox of 2026.
+          13 × 28 days + 1 intercalary day, beginning on Gregorian 2026-03-20 (28X-0000-01-01).
         </p>
       </div>
 
@@ -95,7 +95,7 @@ export default function Home() {
           <div>
             <h3 className="font-medium mb-2 text-gray-900">Fixed Epoch</h3>
             <p className="text-sm leading-relaxed">
-              28X-0001-01-01 begins on the first 28-day New Year following the March equinox of 2026.
+              Gregorian 2026-03-20 (UTC) = 28X-0000-01-01. Year 0000 is the first 28x year.
             </p>
           </div>
         </div>
