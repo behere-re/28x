@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import './globals.css'
 import Navigation from '@/components/Navigation'
 
@@ -22,8 +23,13 @@ export default function RootLayout({
           </main>
           <footer className="border-t border-gray-200 mt-24 py-12">
             <div className="max-w-6xl mx-auto px-6">
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-600 mb-4">
                 28x is an open temporal standard. This site serves as its authoritative reference.
+              </p>
+              <p className="text-sm text-gray-500">
+                <Link href="/acknowledgements" className="hover:text-gray-700 transition-colors">
+                  Acknowledgements
+                </Link>
               </p>
             </div>
           </footer>
