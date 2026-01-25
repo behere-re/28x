@@ -12,7 +12,7 @@ export default function XeroResetPage() {
       <div className="flex items-center gap-4 mb-8 not-prose">
         <a href="https://x.com/XeroDestroys" target="_blank" rel="noopener noreferrer">
           <Image
-            src="/xero-profile.png"
+            src="/xero-profile.jpg"
             alt="XERO"
             width={100}
             height={100}
