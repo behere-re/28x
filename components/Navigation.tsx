@@ -9,6 +9,7 @@ export default function Navigation() {
     { href: '/why-now', label: 'Why Now' },
     { href: '/time-literacy', label: 'Time Literacy' },
     { href: '/governance', label: 'Governance' },
+    { href: '/xero-reset', label: 'XERO Reset' },
     { href: '/convert', label: 'Convert' },
   ]
 
