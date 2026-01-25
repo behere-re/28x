@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'The XERO Reset: When Psychohistory Meets Sacred Time',
@@ -8,6 +9,26 @@ export const metadata: Metadata = {
 export default function XeroResetPage() {
   return (
     <div className="prose">
+      <div className="flex items-center gap-4 mb-8 not-prose">
+        <a href="https://x.com/XeroDestroys" target="_blank" rel="noopener noreferrer">
+          <Image
+            src="/xero-profile.png"
+            alt="XERO"
+            width={100}
+            height={100}
+            className="rounded-full"
+          />
+        </a>
+        <a
+          href="https://x.com/XeroDestroys"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-600 hover:text-gray-900 transition-colors"
+        >
+          follow on X
+        </a>
+      </div>
+
       <h1>The XERO Reset</h1>
       <p className="text-xl text-gray-600 mt-2">When Psychohistory Meets Sacred Time</p>
 
