@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply antialiased;
+    font-size: 17px;
+  }
+
+  body {
+    @apply bg-bg text-primary;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.75;
+  }
+}
+
+@layer components {
+  .prose {
+    @apply max-w-content mx-auto;
+  }
+
+  .prose h1 {
+    @apply font-display text-h1-mobile md:text-h1 tracking-tight mb-8 mt-16 first:mt-0 text-primary;
+    font-weight: 600;
+  }
+
+  .prose h2 {
+    @apply font-display text-h2-mobile md:text-h2 tracking-tight mb-6 mt-16 first:mt-0 text-primary;
+    font-weight: 400;
+  }
+
+  .prose h3 {
+    @apply font-display text-h3 tracking-tight mb-4 mt-10 text-primary;
+    font-weight: 400;
+  }
+
+  .prose p {
+    @apply mb-6 max-w-paragraph;
+    line-height: 1.75;
+  }
+
+  .prose ul, .prose ol {
+    @apply mb-6 pl-6 max-w-paragraph;
+  }
+
+  .prose li {
+    @apply mb-2;
+    line-height: 1.75;
+  }
+
+  .prose a {
+    @apply text-accent underline decoration-1 underline-offset-2 hover:text-accent-hover transition-colors;
+  }
+
+  .prose code {
+    @apply font-mono text-sm bg-card px-1.5 py-0.5 rounded border border-border;
+  }
+
+  .prose pre {
+    @apply bg-primary text-[#e5e5e5] p-6 rounded-lg overflow-x-auto mb-6;
+  }
+
+  .prose pre code {
+    @apply bg-transparent p-0 text-inherit border-0;
+  }
+
+  .prose blockquote {
+    @apply border-l-4 border-border pl-6 italic my-6 text-secondary;
+  }
+
+  .prose hr {
+    @apply border-border my-12;
+  }
+
+  .prose table {
+    @apply w-full border-collapse mb-6;
+  }
+
+  .prose th {
+    @apply border border-border px-4 py-2 text-left font-medium bg-card;
+  }
+
+  .prose td {
+    @apply border border-border px-4 py-2;
+  }
+
+  .prose strong {
+    @apply text-primary font-semibold;
+  }
+
+  .section-label {
+    @apply text-section-label uppercase text-accent tracking-[0.12em] mb-4 block;
+    font-weight: 500;
+  }
+
+  a {
+    @apply cursor-pointer;
+    pointer-events: auto;
+    user-select: auto;
+  }
+
+  a[href] {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+  }
+}
