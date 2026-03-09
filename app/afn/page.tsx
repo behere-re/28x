@@ -1,16 +1,80 @@
+/* eslint-disable @next/next/no-img-element */
+
 export default function AFNPage() {
   return (
     <div className="prose">
 
       {/* Section 1 — Hero */}
-      <section className="hero-section" style={{ paddingTop: 0 }}>
-        <span className="section-label">A 28X Standard Proposal</span>
-        <h1 className="gradient-text">The Anml Field Note Standard</h1>
-        <p style={{ fontSize: '20px', lineHeight: '1.6', color: 'var(--color-text-secondary)' }}>
+      <section
+        className="hero-section flex flex-col items-center text-center !max-w-none"
+        style={{ paddingTop: '100px', paddingBottom: '72px', gap: '24px' }}
+      >
+        <span
+          className="block uppercase"
+          style={{
+            fontSize: '11px',
+            fontWeight: 500,
+            letterSpacing: '0.18em',
+            color: 'var(--color-purple)',
+            marginBottom: '8px',
+          }}
+        >
+          A 28X Standard Proposal
+        </span>
+
+        <img
+          src="/afn-logo.png"
+          alt="AFN — Anml Field Notes"
+          className="afn-logo"
+        />
+
+        <p
+          className="font-mono !mb-0"
+          style={{
+            fontSize: '12px',
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+            color: 'var(--color-text-muted)',
+            marginTop: '16px',
+          }}
+        >
+          Anml Field Notes{'  '}·{'  '}A 28x Standard{'  '}·{'  '}
+          <span style={{ color: 'var(--color-purple-light)' }}>Built on Algorand</span>
+        </p>
+
+        <div
+          style={{
+            width: '320px',
+            maxWidth: '80vw',
+            height: '1px',
+            background: 'var(--color-border)',
+            margin: '8px auto',
+          }}
+        />
+
+        <p
+          className="!mb-0"
+          style={{
+            fontSize: '18px',
+            lineHeight: '1.75',
+            color: 'var(--color-text-secondary)',
+            maxWidth: '520px',
+            textAlign: 'center',
+          }}
+        >
           A two-layer architecture for provable private presence —
           public proof on Algorand, private content owned by the family.
         </p>
-        <p className="font-mono" style={{ fontSize: '13px', color: 'var(--color-text-muted)' }}>
+
+        <p
+          className="font-mono !mb-0"
+          style={{
+            fontSize: '12px',
+            color: 'var(--color-text-muted)',
+            textAlign: 'center',
+            letterSpacing: '0.06em',
+          }}
+        >
           Version: 0.1 Draft · Epoch: <code>28X-0000-01-01</code> · Status: Active
         </p>
       </section>
@@ -73,10 +137,34 @@ export default function AFNPage() {
         </div>
       </div>
 
-      <p className="text-center italic !max-w-none" style={{ fontSize: '14px', color: 'var(--color-text-muted)' }}>
-        The content hash in the public proof cryptographically links both
-        layers — without exposing private content.
-      </p>
+      <div
+        className="text-center italic !max-w-none"
+        style={{
+          fontSize: '15px',
+          color: 'var(--color-text-secondary)',
+          maxWidth: '580px',
+          margin: '0 auto',
+          lineHeight: '1.8',
+        }}
+      >
+        <p className="!mb-4" style={{ color: 'var(--color-text-secondary)' }}>
+          Before this architecture, you had to choose: prove something happened,
+          or keep it private. The AFN eliminates that tradeoff. Your family can
+          prove presence — to a school, a credential system, your future selves —
+          without revealing what was said. The proof and the content are permanently
+          linked but independently held.
+        </p>
+        <p
+          className="!mb-0"
+          style={{
+            color: 'var(--color-purple-light)',
+            fontStyle: 'normal',
+            fontWeight: 500,
+          }}
+        >
+          That is a new thing in the world.
+        </p>
+      </div>
 
       {/* Section 4 — The Epoch */}
       <span className="section-label">The Epoch</span>

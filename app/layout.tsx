@@ -104,6 +104,10 @@ export default function RootLayout({
                   AFN Standard
                 </Link>
                 <span>·</span>
+                <a href="https://api.28x.org" target="_blank" rel="noopener noreferrer" className="hover:text-purple-light transition-colors">
+                  API
+                </a>
+                <span>·</span>
                 <a href="https://mjl.re" target="_blank" rel="noopener noreferrer" className="hover:text-purple-light transition-colors">
                   by mjl.re
                 </a>

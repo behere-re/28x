@@ -97,6 +97,19 @@ export default function Home() {
               Learn more →
             </span>
           </Link>
+
+          <a href="https://api.28x.org" target="_blank" rel="noopener noreferrer" className="card block no-underline group" style={{ border: '1px solid var(--color-border)' }}>
+            <span className="section-label !mb-2" style={{ fontSize: '10px' }}>Developer</span>
+            <h2 className="text-h3 mb-3 text-text-primary group-hover:text-purple-light transition-colors" style={{ fontWeight: 500, marginTop: 0 }}>
+              Time API
+            </h2>
+            <p className="text-text-secondary text-sm mb-4" style={{ lineHeight: '1.65' }}>
+              Query the current 28x date, convert between calendars, and mint AFN coordinates. Live at api.28x.org.
+            </p>
+            <span className="text-sm" style={{ color: 'var(--color-purple)' }}>
+              Explore the API →
+            </span>
+          </a>
         </div>
       </section>
 

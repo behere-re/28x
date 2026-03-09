@@ -31,8 +31,9 @@ export default function ConvertPage() {
           structure (13 × 28 days + 1 intercalary day per year).
         </p>
         <p>
-          For now, reference implementations are being developed and tested. When ready, conversion tools will be 
-          provided both as web interfaces and as programmatic APIs.
+          The <a href="https://api.28x.org" target="_blank" rel="noopener noreferrer">28x Time API</a> is
+          live at <code>api.28x.org</code> — convert dates, query the current 28x coordinate, and generate
+          AFN minting metadata programmatically.
         </p>
       </div>
     </div>
