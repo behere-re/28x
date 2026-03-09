@@ -173,11 +173,11 @@ export default function AFNPage() {
       <p>
         Contact:{' '}
         <a
-          href="mailto:afn@28x.org"
+          href="mailto:matthew@mjl.re"
           className="font-mono"
           style={{ color: 'var(--color-purple-light)', borderBottom: '1px solid var(--color-purple-dim)' }}
         >
-          afn@28x.org
+          matthew@mjl.re
         </a>
       </p>
 
