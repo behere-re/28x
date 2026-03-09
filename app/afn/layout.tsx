@@ -1,10 +1,10 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'AFN — Anml Field Notes',
+  title: 'AFN — A Field Note',
   description: 'A two-layer architecture for provable private presence — public proof on Algorand, private content owned by the family.',
   openGraph: {
-    title: 'AFN — Anml Field Notes',
+    title: 'AFN — A Field Note',
     description: 'A two-layer architecture for provable private presence — public proof on Algorand, private content owned by the family.',
     url: 'https://28x.org/afn',
     type: 'article',

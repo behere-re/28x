@@ -24,7 +24,7 @@ export default function AFNPage() {
 
         <img
           src="/afn-logo.png"
-          alt="AFN — Anml Field Notes"
+          alt="AFN — A Field Note"
           className="afn-logo"
         />
 
@@ -38,7 +38,7 @@ export default function AFNPage() {
             marginTop: '16px',
           }}
         >
-          Anml Field Notes{'  '}·{'  '}A 28x Standard{'  '}·{'  '}
+          A Field Note{'  '}·{'  '}A 28x Standard{'  '}·{'  '}
           <span style={{ color: 'var(--color-purple-light)' }}>Built on Algorand</span>
         </p>
 
@@ -103,7 +103,7 @@ export default function AFNPage() {
       <span className="section-label">The Proposal</span>
       <h2>The proposal</h2>
       <p>
-        An Anml Field Note (AFN) is a family-generated moment — a voice note,
+        A Field Note (AFN) is a family-generated moment — a voice note,
         a photograph, a written observation — that produces two distinct
         artifacts with a cryptographic relationship between them.
       </p>
@@ -177,7 +177,7 @@ export default function AFNPage() {
       <p>
         Field notes minted from this date carry a 28x coordinate in their
         on-chain metadata, anchoring them permanently to the new temporal
-        record. The first Anml Field Notes are not just family artifacts —
+        record. The first Field Notes are not just family artifacts —
         they are the first entries in a new way of marking time.
       </p>
 
