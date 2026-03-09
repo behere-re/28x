@@ -1,0 +1,20 @@
+{
+  "name": "28x-time-api",
+  "version": "0.1.0",
+  "description": "The official time service for the 28x temporal standard",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "node --test tests/calendar.test.js"
+  },
+  "keywords": ["28x", "calendar", "temporal", "time", "api"],
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.0",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

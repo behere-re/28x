@@ -1,20 +1,20 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Inter, Fraunces } from 'next/font/google'
+import { Space_Grotesk, Space_Mono } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/Navigation'
 
-const inter = Inter({
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
-  weight: ['400', '500'],
-  variable: '--font-inter',
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-space-grotesk',
   display: 'swap',
 })
 
-const fraunces = Fraunces({
+const spaceMono = Space_Mono({
   subsets: ['latin'],
-  weight: ['300', '400', '600'],
-  variable: '--font-fraunces',
+  weight: ['400', '700'],
+  variable: '--font-space-mono',
   display: 'swap',
 })
 
@@ -64,27 +64,28 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${fraunces.variable} font-sans`}>
-        <div className="min-h-screen flex flex-col">
+      <body className={`${spaceGrotesk.variable} ${spaceMono.variable} font-sans`}>
+        <div className="min-h-screen flex flex-col relative">
           <Navigation />
-          <main className="flex-1">
+          <main className="flex-1 relative z-10">
             {children}
           </main>
-          <footer className="border-t border-border mt-section pt-12 pb-16">
-            <div className="max-w-content mx-auto px-6 md:px-12">
-              <p className="text-sm text-secondary mb-3">
-                28x is an open standard. Year 0000 begins 28X-0000-01-01.
+          <footer className="relative z-10 bg-bg-surface border-t border-border">
+            <div className="max-w-content mx-auto px-6 md:px-12 pt-12 pb-16">
+              <p className="text-sm text-text-muted mb-3">
+                28x is an open standard. Year 0000 begins{' '}
+                <code>28X-0000-01-01</code>.
               </p>
-              <div className="flex items-center gap-3 text-sm text-secondary">
-                <Link href="/acknowledgements" className="hover:text-accent transition-colors">
+              <div className="flex items-center gap-3 text-sm text-text-muted">
+                <Link href="/acknowledgements" className="hover:text-purple-light transition-colors">
                   Acknowledgements
                 </Link>
                 <span>·</span>
-                <Link href="/afn" className="hover:text-accent transition-colors">
+                <Link href="/afn" className="hover:text-purple-light transition-colors">
                   AFN Standard
                 </Link>
                 <span>·</span>
-                <a href="https://mjl.re" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
+                <a href="https://mjl.re" target="_blank" rel="noopener noreferrer" className="hover:text-purple-light transition-colors">
                   by mjl.re
                 </a>
               </div>

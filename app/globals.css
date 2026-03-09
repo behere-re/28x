@@ -3,47 +3,121 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --color-bg-deep: #05050F;
+    --color-bg-surface: #0F0F1A;
+    --color-bg-card: #16162A;
+    --color-bg-card-hover: #1E1E35;
+    --color-border: #2A2A45;
+    --color-border-subtle: #1A1A30;
+    --color-text-primary: #F0EEF8;
+    --color-text-secondary: #9B96B8;
+    --color-text-muted: #5C5875;
+    --color-purple: #8B6FFF;
+    --color-purple-light: #A992FF;
+    --color-purple-dim: #4A3A8A;
+    --color-purple-glow: rgba(139, 111, 255, 0.15);
+    --gradient-text: linear-gradient(135deg, #A992FF 0%, #6B4FE8 100%);
+    --gradient-hero: radial-gradient(ellipse at 50% 0%, rgba(139,111,255,0.18) 0%, rgba(5,5,15,0) 65%);
+  }
+
   html {
     @apply antialiased;
     font-size: 17px;
   }
 
   body {
-    @apply bg-bg text-primary;
+    background-color: var(--color-bg-deep);
+    color: var(--color-text-secondary);
     font-feature-settings: 'kern' 1, 'liga' 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.75;
   }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 600px;
+    background: var(--gradient-hero);
+    pointer-events: none;
+    z-index: 0;
+  }
 }
 
 @layer components {
+  /* Gradient text for H1 headings */
+  .gradient-text {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Star field for hero sections */
+  .hero-section {
+    position: relative;
+  }
+
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 80% 10%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 60% 70%, rgba(255,255,255,0.2) 0%, transparent 100%),
+      radial-gradient(1px 1px at 10% 60%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 50%, rgba(255,255,255,0.2) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 40% 20%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 70% 85%, rgba(255,255,255,0.2) 0%, transparent 100%),
+      radial-gradient(1px 1px at 35% 45%, rgba(255,255,255,0.25) 0%, transparent 100%),
+      radial-gradient(1px 1px at 55% 15%, rgba(255,255,255,0.35) 0%, transparent 100%),
+      radial-gradient(1px 1px at 15% 80%, rgba(255,255,255,0.15) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-section > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Prose styling for content pages */
   .prose {
     @apply max-w-content mx-auto;
   }
 
   .prose h1 {
-    @apply font-display text-h1-mobile md:text-h1 tracking-tight mb-8 mt-16 first:mt-0 text-primary;
-    font-weight: 600;
+    @apply text-h1-mobile md:text-h1 tracking-tight mb-8 mt-16 first:mt-0;
+    color: var(--color-text-primary);
+    font-weight: 700;
   }
 
   .prose h2 {
-    @apply font-display text-h2-mobile md:text-h2 tracking-tight mb-6 mt-16 first:mt-0 text-primary;
-    font-weight: 400;
+    @apply text-h2-mobile md:text-h2 tracking-tight mb-6 mt-16 first:mt-0;
+    color: var(--color-text-primary);
+    font-weight: 600;
   }
 
   .prose h3 {
-    @apply font-display text-h3 tracking-tight mb-4 mt-10 text-primary;
-    font-weight: 400;
+    @apply text-h3 tracking-tight mb-4 mt-10;
+    color: var(--color-text-primary);
+    font-weight: 500;
   }
 
   .prose p {
-    @apply mb-6 max-w-paragraph;
+    @apply mb-6;
     line-height: 1.75;
+    color: var(--color-text-secondary);
   }
 
   .prose ul, .prose ol {
-    @apply mb-6 pl-6 max-w-paragraph;
+    @apply mb-6 pl-6;
+    color: var(--color-text-secondary);
   }
 
   .prose li {
@@ -52,27 +126,27 @@
   }
 
   .prose a {
-    @apply text-accent underline decoration-1 underline-offset-2 hover:text-accent-hover transition-colors;
+    color: var(--color-purple-light);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-purple-dim);
+    transition: border-color 0.2s, color 0.2s;
   }
 
-  .prose code {
-    @apply font-mono text-sm bg-card px-1.5 py-0.5 rounded border border-border;
-  }
-
-  .prose pre {
-    @apply bg-primary text-[#e5e5e5] p-6 rounded-lg overflow-x-auto mb-6;
-  }
-
-  .prose pre code {
-    @apply bg-transparent p-0 text-inherit border-0;
+  .prose a:hover {
+    color: var(--color-purple);
+    border-bottom-color: var(--color-purple);
   }
 
   .prose blockquote {
-    @apply border-l-4 border-border pl-6 italic my-6 text-secondary;
+    @apply pl-6 italic my-6;
+    border-left: 4px solid var(--color-border);
+    color: var(--color-text-secondary);
   }
 
   .prose hr {
-    @apply border-border my-12;
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: 64px 0;
   }
 
   .prose table {
@@ -80,22 +154,74 @@
   }
 
   .prose th {
-    @apply border border-border px-4 py-2 text-left font-medium bg-card;
+    @apply px-4 py-2 text-left font-medium;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-card);
+    color: var(--color-text-primary);
   }
 
   .prose td {
-    @apply border border-border px-4 py-2;
+    @apply px-4 py-2;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
   }
 
   .prose strong {
-    @apply text-primary font-semibold;
+    color: var(--color-text-primary);
+    font-weight: 600;
   }
 
+  .prose pre {
+    @apply p-6 rounded-xl overflow-x-auto mb-6;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+  }
+
+  .prose pre code {
+    @apply p-0 border-0 rounded-none;
+    background: transparent;
+    color: inherit;
+    font-size: inherit;
+  }
+
+  /* Global code/coordinate styling — Space Mono, purple */
+  code {
+    font-family: var(--font-space-mono), monospace;
+    font-size: 0.875rem;
+    color: var(--color-purple-light);
+    background: var(--color-bg-card);
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--color-border);
+  }
+
+  /* Section labels */
   .section-label {
-    @apply text-section-label uppercase text-accent tracking-[0.12em] mb-4 block;
+    display: block;
+    font-size: 0.6875rem;
     font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-purple);
+    margin-bottom: 12px;
   }
 
+  /* Card base */
+  .card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 28px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .card:hover {
+    border-color: var(--color-purple-dim);
+    box-shadow: 0 0 24px var(--color-purple-glow);
+  }
+
+  /* Link base styling */
   a {
     @apply cursor-pointer;
     pointer-events: auto;
