@@ -19,7 +19,7 @@ export default function XeroResetPage() {
   return (
     <div className="prose">
       <div className="flex items-center gap-4 mb-8 not-prose">
-        <a href="https://x.com/XeroDestroys" target="_blank" rel="noopener noreferrer">
+        <a href="https://x.com/xerodestroys" target="_blank" rel="noopener noreferrer">
           <Image
             src="/xero-profile.jpg"
             alt="XERO"
@@ -29,17 +29,17 @@ export default function XeroResetPage() {
           />
         </a>
         <a
-          href="https://x.com/XeroDestroys"
+          href="https://x.com/xerodestroys"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-600 hover:text-gray-900 transition-colors"
+          className="text-text-muted hover:text-purple-light transition-colors"
         >
           follow on X
         </a>
       </div>
 
       <h1>The XERO Reset</h1>
-      <p className="text-xl text-gray-600 mt-2">When Psychohistory Meets Sacred Time</p>
+      <p className="text-xl text-text-secondary mt-2">When Psychohistory Meets Sacred Time</p>
 
       <h2>The Convergence</h2>
       <p>
@@ -76,12 +76,12 @@ export default function XeroResetPage() {
         He resets the parameters.
       </p>
 
-      <h2>The 13.28T $XERO Reset</h2>
+      <h2>The 13.28B $XERO Reset</h2>
       <p>
         The XERO token exists on Algorand as the economic expression of this temporal-value convergence.
       </p>
       <p>
-        13.28 Trillion tokens — a number that mirrors the rhythmic precision of the 28x standard.
+        13.28 Billion tokens — a number that mirrors the rhythmic precision of the 28x standard.
       </p>
       <p>
         Fair launched at <a href="https://rug.ninja/XERO" target="_blank" rel="noopener noreferrer">rug.ninja/XERO</a> with no presale, no team allocation, no VC gatekeepers.
@@ -176,12 +176,12 @@ export default function XeroResetPage() {
       <h2>The Protocol Is Live</h2>
       <ul>
         <li><strong>Token:</strong> XERO (Algorand ASA)</li>
-        <li><strong>Supply:</strong> 13.28 Trillion (fixed)</li>
+        <li><strong>Supply:</strong> 13.28 Billion (fixed)</li>
         <li><strong>Launch:</strong> Fair launch via <a href="https://rug.ninja/XERO" target="_blank" rel="noopener noreferrer">rug.ninja/XERO</a></li>
         <li><strong>Liquidity:</strong> Community-seeded, no rug possible</li>
       </ul>
       <p>
-        The 13.28T $XERO Reset is now.
+        The 13.28B $XERO Reset is now.
       </p>
       <p>
         Year 0000 begins on March 20, 2026.
@@ -196,7 +196,7 @@ export default function XeroResetPage() {
       <h2>Participate</h2>
       <ul>
         <li><a href="https://rug.ninja/XERO" target="_blank" rel="noopener noreferrer">Get XERO</a></li>
-        <li><a href="https://x.com/XeroDestroys" target="_blank" rel="noopener noreferrer">XERO on X</a></li>
+        <li><a href="https://x.com/xerodestroys" target="_blank" rel="noopener noreferrer">XERO on X</a></li>
       </ul>
     </div>
   )
