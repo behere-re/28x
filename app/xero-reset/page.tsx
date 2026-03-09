@@ -4,6 +4,15 @@ import Image from 'next/image'
 export const metadata: Metadata = {
   title: 'The XERO Reset: When Psychohistory Meets Sacred Time',
   description: 'On March 20, 2026, two resets align: the 28x Standard resets our relationship to time, and the XERO Protocol resets our relationship to value.',
+  openGraph: {
+    title: 'The XERO Reset: When Psychohistory Meets Sacred Time',
+    description: 'On March 20, 2026, two resets align: the 28x Standard resets our relationship to time, and the XERO Protocol resets our relationship to value.',
+    url: 'https://28x.org/xero-reset',
+    type: 'article',
+  },
+  alternates: {
+    canonical: 'https://28x.org/xero-reset',
+  },
 }
 
 export default function XeroResetPage() {

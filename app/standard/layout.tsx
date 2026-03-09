@@ -7,6 +7,7 @@ export const metadata: Metadata = {
     title: '28x Time Standard v0.1',
     description: 'The complete specification for the 28x temporal standard.',
     url: 'https://28x.org/standard',
+    type: 'article',
   },
   alternates: {
     canonical: 'https://28x.org/standard',

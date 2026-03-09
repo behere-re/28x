@@ -28,6 +28,16 @@ export const metadata: Metadata = {
   keywords: ['28x', 'calendar', 'temporal standard', 'lunar calendar', 'time standard', 'calendar system'],
   authors: [{ name: '28x Standard' }],
   creator: '28x Standard',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
   openGraph: {
     title: '28x — An Open Temporal Standard',
     description: 'A regular, lunar-aligned calendar system for the age of intelligent systems.',
@@ -35,11 +45,20 @@ export const metadata: Metadata = {
     url: 'https://28x.org',
     siteName: '28x',
     locale: 'en_US',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1024,
+        height: 576,
+        alt: '28x — An Open Temporal Standard',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: '28x — An Open Temporal Standard',
     description: 'A regular, lunar-aligned calendar system for the age of intelligent systems.',
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
