@@ -19,7 +19,7 @@ export default function XeroResetPage() {
   return (
     <div className="prose">
       <div className="flex items-center gap-4 mb-8 not-prose">
-        <a href="https://x.com/xerodestroys" target="_blank" rel="noopener noreferrer">
+        <a href="https://x.com/XeroDestroys" target="_blank" rel="noopener noreferrer">
           <Image
             src="/xero-profile.jpg"
             alt="XERO"
@@ -29,7 +29,7 @@ export default function XeroResetPage() {
           />
         </a>
         <a
-          href="https://x.com/xerodestroys"
+          href="https://x.com/XeroDestroys"
           target="_blank"
           rel="noopener noreferrer"
           className="text-text-muted hover:text-purple-light transition-colors"
@@ -196,7 +196,8 @@ export default function XeroResetPage() {
       <h2>Participate</h2>
       <ul>
         <li><a href="https://rug.ninja/XERO" target="_blank" rel="noopener noreferrer">Get XERO</a></li>
-        <li><a href="https://x.com/xerodestroys" target="_blank" rel="noopener noreferrer">XERO on X</a></li>
+        <li><a href="https://x.com/XeroDestroys" target="_blank" rel="noopener noreferrer">XERO on X</a></li>
+        <li><a href="https://explorer.perawallet.app/asset/3190855130/" target="_blank" rel="noopener noreferrer">XERO on Pera Explorer</a></li>
       </ul>
     </div>
   )

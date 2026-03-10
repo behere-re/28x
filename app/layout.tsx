@@ -93,7 +93,7 @@ export default function RootLayout({
             <div className="max-w-content mx-auto px-6 md:px-12 pt-12 pb-16">
               <p className="text-sm text-text-muted mb-3">
                 28x is an open standard. Year 0000 begins{' '}
-                <code>28X-0000-01-01</code>.
+                <code className="whitespace-nowrap">28X-0000-01-01</code>.
               </p>
               <div className="flex items-center gap-3 text-sm text-text-muted">
                 <Link href="/acknowledgements" className="hover:text-purple-light transition-colors">

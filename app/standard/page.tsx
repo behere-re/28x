@@ -109,7 +109,7 @@ export default function StandardPage() {
       <h3>4.1 Epoch statement (normative)</h3>
 
       <p>
-        Gregorian 2026-03-20 (UTC civil date) = <strong>28X-0000-01-01</strong>
+        Gregorian 2026-03-20 (UTC civil date) = <strong className="whitespace-nowrap">28X-0000-01-01</strong>
       </p>
 
       <p>
@@ -260,7 +260,7 @@ export default function StandardPage() {
 
       <p>Examples:</p>
       <ul>
-        <li><code>28X-0000-01-01</code> (epoch date)</li>
+        <li><code className="whitespace-nowrap">28X-0000-01-01</code> (epoch date)</li>
         <li><code>28X--0001-13-28</code> (one year before epoch)</li>
       </ul>
 

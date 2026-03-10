@@ -75,7 +75,7 @@ export default function AFNPage() {
             letterSpacing: '0.06em',
           }}
         >
-          Version: 0.1 Draft · Epoch: <code>28X-0000-01-01</code> · Status: Active
+          Version: 0.1 Draft · Epoch: <code className="whitespace-nowrap">28X-0000-01-01</code> · Status: Active
         </p>
       </section>
 
@@ -170,7 +170,7 @@ export default function AFNPage() {
       <span className="section-label">The Epoch</span>
       <h2>The epoch</h2>
       <p>
-        AFN Season 1 begins on <code>28X-0000-01-01</code> —
+        AFN Season 1 begins on <code className="whitespace-nowrap">28X-0000-01-01</code> —
         the first day of Year 0000 in the 28x temporal standard.
         Gregorian equivalent: March 20, 2026.
       </p>
@@ -211,7 +211,7 @@ export default function AFNPage() {
           </a>
         </p>
         <p className="!mb-0" style={{ fontSize: '14px', color: 'var(--color-text-muted)' }}>
-          Launching <code>28X-0000-01-01</code> · Santa Barbara County, California
+          Launching <code className="whitespace-nowrap">28X-0000-01-01</code> · Santa Barbara County, California
         </p>
       </div>
 

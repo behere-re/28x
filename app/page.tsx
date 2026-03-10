@@ -25,7 +25,7 @@ export default function Home() {
           An open standard for time. Year 0000 begins March 20, 2026.
         </p>
         <div className="flex items-center gap-3 mb-6 text-text-muted" style={{ fontSize: '14px' }}>
-          <code>28X-0000-01-01</code>
+          <code className="whitespace-nowrap">28X-0000-01-01</code>
           <span>·</span>
           <span>Spring Equinox 2026</span>
         </div>
@@ -134,7 +134,7 @@ export default function Home() {
             <p className="text-text-secondary text-sm mb-3" style={{ lineHeight: '1.65' }}>
               Gregorian 2026-03-20 (UTC) = 28X-0000-01-01. Year 0000 is the first 28x year.
             </p>
-            <code>28X-0000-01-01</code>
+            <code className="whitespace-nowrap">28X-0000-01-01</code>
           </div>
         </div>
       </section>
