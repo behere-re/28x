@@ -153,12 +153,13 @@ export default function Navigation() {
         </div>
       </nav>
 
-      {/* Mobile menu overlay */}
+      {/* Mobile menu overlay — hidden and non-interactive when closed so it never captures taps */}
       <div
         className="fixed inset-0 z-40 md:hidden flex flex-col transition-all duration-300"
         style={{
           backgroundColor: 'var(--color-bg-deep)',
           opacity: isOpen ? 1 : 0,
+          visibility: isOpen ? 'visible' : 'hidden',
           pointerEvents: isOpen ? 'auto' : 'none',
           paddingTop: '60px',
         }}
