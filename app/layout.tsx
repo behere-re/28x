@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Script from 'next/script'
 import { Space_Grotesk, Space_Mono } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/Navigation'
+import SubscribeForm from '@/components/SubscribeForm'
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -89,31 +91,40 @@ export default function RootLayout({
           <main className="flex-1 relative z-10">
             {children}
           </main>
-          <footer className="relative z-10 bg-bg-surface border-t border-border">
-            <div className="max-w-content mx-auto px-6 md:px-12 pt-12 pb-16">
-              <p className="text-sm text-text-muted mb-3">
-                28x is an open standard. Year 0000 begins{' '}
-                <code className="whitespace-nowrap">28X-0000-01-01</code>.
-              </p>
-              <div className="flex items-center gap-3 text-sm text-text-muted">
-                <Link href="/acknowledgements" className="hover:text-purple-light transition-colors">
-                  Acknowledgements
-                </Link>
-                <span>·</span>
-                <Link href="/afn" className="hover:text-purple-light transition-colors">
-                  AFN Standard
-                </Link>
-                <span>·</span>
-                <a href="https://api.28x.org" target="_blank" rel="noopener noreferrer" className="hover:text-purple-light transition-colors">
-                  API
-                </a>
-                <span>·</span>
-                <a href="https://mjl.re" target="_blank" rel="noopener noreferrer" className="hover:text-purple-light transition-colors">
-                  by mjl.re
-                </a>
-              </div>
+          <Script
+            id="keak-script"
+            src="https://script.keak.com/v1/1322"
+            data-domain="1322"
+            strategy="afterInteractive"
+          />
+          <section className="relative z-10 bg-gradient-to-b from-bg-surface/0 via-bg-surface/60 to-bg-surface border-t border-border">
+            <div className="max-w-content mx-auto px-6 md:px-12 pt-10 pb-10 md:pt-12 md:pb-14 space-y-8">
+              <SubscribeForm />
+              <footer className="border-t border-border/70 pt-8">
+                <p className="text-sm text-text-muted mb-3">
+                  28x is an open standard. Year 0000 begins{' '}
+                  <code className="whitespace-nowrap">28X-0000-01-01</code>.
+                </p>
+                <div className="flex flex-wrap items-center gap-3 text-sm text-text-muted">
+                  <Link href="/acknowledgements" className="hover:text-purple-light transition-colors">
+                    Acknowledgements
+                  </Link>
+                  <span>·</span>
+                  <Link href="/afn" className="hover:text-purple-light transition-colors">
+                    AFN Standard
+                  </Link>
+                  <span>·</span>
+                  <a href="https://api.28x.org" target="_blank" rel="noopener noreferrer" className="hover:text-purple-light transition-colors">
+                    API
+                  </a>
+                  <span>·</span>
+                  <a href="https://mjl.re" target="_blank" rel="noopener noreferrer" className="hover:text-purple-light transition-colors">
+                    by mjl.re
+                  </a>
+                </div>
+              </footer>
             </div>
-          </footer>
+          </section>
         </div>
       </body>
     </html>
