@@ -29,8 +29,10 @@ export default function Navigation() {
     { href: '/time-literacy', label: 'Time Literacy' },
     { href: '/governance', label: 'Governance' },
     { href: '/afn', label: 'AFN' },
+    { href: '/agent-adoption-case', label: 'Agent Adoption' },
     { href: '/xero-reset', label: 'XERO Reset' },
     { href: '/convert', label: 'Convert' },
+    { href: '/developers', label: 'Developers' },
     { href: 'https://api.28x.org', label: 'API', external: true },
   ]
 
