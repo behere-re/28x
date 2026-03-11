@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react'
 
 type SubscribeFormProps = {
@@ -87,4 +89,4 @@ export default function SubscribeForm({ variant = 'default' }: SubscribeFormProp
       )}
     </section>
   )
-
+}
