@@ -33,7 +33,7 @@ function validate28xCoordinate(coordinateStr) {
     return { valid: false, error: 'Missing coordinate parameter', code: 'MISSING_COORDINATE' };
   }
 
-  const match = coordinateStr.match(/^28X-(\d{4})-(\d{2})-(\d{2})$/);
+  const match = coordinateStr.match(/^28X-(-\d{4}|\d{4})-(\d{2})-(\d{2})$/);
   if (!match) {
     return {
       valid: false,

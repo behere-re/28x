@@ -24,14 +24,48 @@ function gregorianTo28x(input) {
 
   // Pre-epoch
   if (totalDays < 0) {
-    const daysBeforeEpoch = Math.abs(totalDays);
+    const daysBeforeEpoch = Math.abs(totalDays); // 1 => day immediately before epoch
+    const preEpochYearLength = (y) => DAYS_PER_YEAR + (isLeapYear(y) ? 1 : 0);
+
+    // Walk backwards through negative years to locate the target year.
+    // remaining is 1..yearLength(year), counting back from the epoch boundary.
+    let year = -1;
+    let remaining = daysBeforeEpoch;
+    while (remaining > preEpochYearLength(year)) {
+      remaining -= preEpochYearLength(year);
+      year--;
+    }
+
+    // Convert to a 0-indexed day-of-year from the *start* of that year.
+    // Example: remaining=1 => last day of the year => dayInYear=yearLength-1
+    const totalDaysInYear = preEpochYearLength(year);
+    const dayInYear = totalDaysInYear - remaining;
+
+    let month, day, isIntercalary;
+    if (dayInYear < DAYS_PER_YEAR) {
+      month = Math.floor(dayInYear / DAYS_PER_MONTH) + 1;
+      day = (dayInYear % DAYS_PER_MONTH) + 1;
+      isIntercalary = false;
+    } else {
+      // Intercalary day at end of leap year (only possible in leap years)
+      month = 0;
+      day = dayInYear - DAYS_PER_YEAR; // 0 for intercalary
+      isIntercalary = true;
+    }
+
+    const coordinate = formatCoordinate(year, month, day);
     return {
       gregorian,
       '28x': {
-        coordinate: `28X-pre-${daysBeforeEpoch}`,
+        coordinate,
+        year,
+        month,
+        day,
         preEpoch: true,
         daysBeforeEpoch,
         isTransitionDay: daysBeforeEpoch === 1,
+        isIntercalary,
+        isLeapYear: isLeapYear(year),
       },
       meta: buildMeta(totalDays),
     };
@@ -113,11 +147,20 @@ function coordinate28xToGregorian(coordinateStr) {
   }
 
   const { year, month, day } = parsed;
+  const preEpochYearLength = (y) => DAYS_PER_YEAR + (isLeapYear(y) ? 1 : 0);
 
   // Sum days for all complete years before this one
   let totalDays = 0;
-  for (let y = 0; y < year; y++) {
-    totalDays += yearLength(y);
+  if (year >= 0) {
+    for (let y = 0; y < year; y++) {
+      totalDays += yearLength(y);
+    }
+  } else {
+    // Walk backwards from year 0 into negative years.
+    // Example: year=-1 => subtract yearLength(-1) once.
+    for (let y = -1; y >= year; y--) {
+      totalDays -= preEpochYearLength(y);
+    }
   }
 
   if (month === 0) {
@@ -137,7 +180,7 @@ function coordinate28xToGregorian(coordinateStr) {
 function parseCoordinate(str) {
   if (!str || typeof str !== 'string') return null;
 
-  const match = str.match(/^28X-(\d{4})-(\d{2})-(\d{2})$/);
+  const match = str.match(/^28X-(-\d{4}|\d{4})-(\d{2})-(\d{2})$/);
   if (!match) return null;
 
   return {
@@ -151,7 +194,9 @@ function parseCoordinate(str) {
  * Format a 28x coordinate string from components.
  */
 function formatCoordinate(year, month, day) {
-  const yy = String(year).padStart(4, '0');
+  const yy = year < 0
+    ? `-${String(Math.abs(year)).padStart(4, '0')}`
+    : String(year).padStart(4, '0');
   const mm = String(month).padStart(2, '0');
   const dd = String(day).padStart(2, '0');
   return `28X-${yy}-${mm}-${dd}`;
@@ -161,7 +206,9 @@ function formatCoordinate(year, month, day) {
  * Format a human-readable 28x date string.
  */
 function formatHumanReadable(year, month, day, season) {
-  const yy = String(year).padStart(4, '0');
+  const yy = year < 0
+    ? `-${String(Math.abs(year)).padStart(4, '0')}`
+    : String(year).padStart(4, '0');
   if (month === 0) {
     const label = day === 0 ? 'Day Out of Time' : 'Leap Day Out of Time';
     return `Year ${yy} · ${label}`;

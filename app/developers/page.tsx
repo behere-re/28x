@@ -90,7 +90,7 @@ export default function DevelopersPage() {
       <ul>
         <li><code>timestamp</code> (optional): ISO datetime or Unix ms. Defaults to now.</li>
       </ul>
-      <p><strong>Response:</strong> <code>afnCoordinate</code>, <code>afnSeason</code>, <code>afnYear</code>, <code>afnSeasonLabel</code>, <code>gregorianISO</code>, <code>mintRecommendation</code> (coordinate, season, year, seasonIdentifier, humanLabel). Returns 400 for pre-epoch dates.</p>
+      <p><strong>Response:</strong> <code>afnCoordinate</code>, <code>afnSeason</code>, <code>afnYear</code>, <code>afnSeasonLabel</code>, <code>gregorianISO</code>, <code>mintRecommendation</code> (coordinate, season, year, seasonIdentifier, humanLabel). Pre-epoch timestamps return a valid coordinate using negative-year notation per spec section 6.4 (e.g. <code>28X--0001-13-20</code>). The <code>mintRecommendation.preEpoch</code> field is <code>true</code> for these responses. Season fields are <code>null</code> for pre-epoch coordinates.</p>
 
       <h2>GET /health</h2>
       <p>Health check. No parameters.</p>
