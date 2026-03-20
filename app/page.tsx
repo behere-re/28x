@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
+import HomeNow from '@/components/HomeNow'
 
 export const metadata: Metadata = {
   title: '28x — An Open Temporal Standard',
@@ -24,6 +25,7 @@ export default function Home() {
         <p className="text-text-secondary mb-6" style={{ fontSize: '20px', lineHeight: '1.6' }}>
           An open standard for time. Year 0000 begins March 20, 2026.
         </p>
+        <HomeNow />
         <div className="flex items-center gap-3 mb-6 text-text-muted" style={{ fontSize: '14px' }}>
           <code className="whitespace-nowrap">28X-0000-01-01</code>
           <span>·</span>

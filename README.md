@@ -15,6 +15,12 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) to view the site.
 
+### Environment
+
+| Variable | Description |
+|----------|-------------|
+| `TWENTY_EIGHT_X_API_BASE` | Optional. Base URL for the 28x Time API (no trailing slash). Defaults to `https://api.28x.org`. For local development, run the API on a different port than Next (e.g. `PORT=3001 npm run dev` in `api.28x.org/`) and set this to `http://localhost:3001`. |
+
 ## Structure
 
 - `/` - Homepage with thesis and entry points
