@@ -73,10 +73,6 @@ export default function StandardPage() {
         <strong>Epoch:</strong> The reference point from which all 28x dates are computed.
       </p>
 
-      <p>
-        <strong>Corresponding Gregorian Year:</strong> The Gregorian year in which 28X-YYYY-01-01 occurs.
-      </p>
-
       <h2>3. Calendar Structure</h2>
 
       <p>Each 28x year consists of:</p>
@@ -129,20 +125,20 @@ export default function StandardPage() {
       <h3>4.3 Leap-Year Rule (normative)</h3>
 
       <p>
-        A 28x year is a leap year if its corresponding Gregorian year is a Gregorian leap year.
+        A 28x year is a leap year if its year number is divisible by 4, except Year 0000.
       </p>
 
       <p>
-        A Gregorian year is a leap year if it is:
+        Formally:
       </p>
       <ul>
-        <li>divisible by 4</li>
-        <li>except if divisible by 100</li>
-        <li>except if divisible by 400</li>
+        <li>Year 0000 is not a leap year.</li>
+        <li>Any other 28x year divisible by 4 is a leap year.</li>
+        <li>All other 28x years are standard years.</li>
       </ul>
 
       <p>
-        The corresponding Gregorian year is the Gregorian year in which 28X-YYYY-01-01 occurs.
+        This is an internal 28x rule and does not inherit Gregorian century or 400-year exceptions.
       </p>
 
       <h2>5. Intercalary Days</h2>

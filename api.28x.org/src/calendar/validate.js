@@ -33,11 +33,25 @@ function validate28xCoordinate(coordinateStr) {
     return { valid: false, error: 'Missing coordinate parameter', code: 'MISSING_COORDINATE' };
   }
 
+  const intercalaryMatch = coordinateStr.match(/^28X-(-\d{4}|\d{4})-(ID|LID)$/);
+  if (intercalaryMatch) {
+    const year = parseInt(intercalaryMatch[1], 10);
+    const day = intercalaryMatch[2] === 'ID' ? 0 : 1;
+    if (day === 1 && !isLeapYear(year)) {
+      return {
+        valid: false,
+        error: `Year ${year} is not a leap year — 28X-${intercalaryMatch[1]}-LID is invalid`,
+        code: 'INVALID_LEAP_INTERCALARY',
+      };
+    }
+    return { valid: true, year, month: 0, day };
+  }
+
   const match = coordinateStr.match(/^28X-(-\d{4}|\d{4})-(\d{2})-(\d{2})$/);
   if (!match) {
     return {
       valid: false,
-      error: `Invalid 28x coordinate format: "${coordinateStr}". Expected 28X-YYYY-MM-DD`,
+      error: `Invalid 28x coordinate format: "${coordinateStr}". Expected 28X-YYYY-MM-DD, 28X-YYYY-ID, or 28X-YYYY-LID`,
       code: 'INVALID_COORDINATE_FORMAT',
     };
   }

@@ -54,10 +54,12 @@ function gregorianTo28x(input) {
     }
 
     const coordinate = formatCoordinate(year, month, day);
+    const canonicalCoordinate = formatCanonicalCoordinate(year, month, day);
     return {
       gregorian,
       '28x': {
         coordinate,
+        canonicalCoordinate,
         year,
         month,
         day,
@@ -114,11 +116,13 @@ function gregorianTo28x(input) {
   }
 
   const coordinate = formatCoordinate(year, month, day);
+  const canonicalCoordinate = formatCanonicalCoordinate(year, month, day);
 
   return {
     gregorian,
     '28x': {
       coordinate,
+      canonicalCoordinate,
       year,
       month,
       day,
@@ -138,7 +142,8 @@ function gregorianTo28x(input) {
 
 /**
  * Convert a 28x coordinate string back to a Gregorian date.
- * Accepts "28X-YYYY-MM-DD" format.
+ * Accepts canonical "28X-YYYY-MM-DD" and "28X-YYYY-ID/LID" formats,
+ * plus legacy numeric intercalary coordinates ("28X-YYYY-00-00/00-01").
  */
 function coordinate28xToGregorian(coordinateStr) {
   const parsed = parseCoordinate(coordinateStr);
@@ -147,6 +152,17 @@ function coordinate28xToGregorian(coordinateStr) {
   }
 
   const { year, month, day } = parsed;
+  if (month === 0) {
+    if (day !== 0 && day !== 1) {
+      throw new Error(`Invalid 28x intercalary day: ${coordinateStr}`);
+    }
+    if (day === 1 && !isLeapYear(year)) {
+      throw new Error(`Invalid leap intercalary coordinate for non-leap year: ${coordinateStr}`);
+    }
+  } else if (month < 1 || month > MONTHS_PER_YEAR || day < 1 || day > DAYS_PER_MONTH) {
+    throw new Error(`Invalid 28x coordinate: ${coordinateStr}`);
+  }
+
   const preEpochYearLength = (y) => DAYS_PER_YEAR + (isLeapYear(y) ? 1 : 0);
 
   // Sum days for all complete years before this one
@@ -180,13 +196,22 @@ function coordinate28xToGregorian(coordinateStr) {
 function parseCoordinate(str) {
   if (!str || typeof str !== 'string') return null;
 
-  const match = str.match(/^28X-(-\d{4}|\d{4})-(\d{2})-(\d{2})$/);
-  if (!match) return null;
+  const intercalaryMatch = str.match(/^28X-(-\d{4}|\d{4})-(ID|LID)$/);
+  if (intercalaryMatch) {
+    return {
+      year: parseInt(intercalaryMatch[1], 10),
+      month: 0,
+      day: intercalaryMatch[2] === 'ID' ? 0 : 1,
+    };
+  }
+
+  const numericMatch = str.match(/^28X-(-\d{4}|\d{4})-(\d{2})-(\d{2})$/);
+  if (!numericMatch) return null;
 
   return {
-    year: parseInt(match[1], 10),
-    month: parseInt(match[2], 10),
-    day: parseInt(match[3], 10),
+    year: parseInt(numericMatch[1], 10),
+    month: parseInt(numericMatch[2], 10),
+    day: parseInt(numericMatch[3], 10),
   };
 }
 
@@ -200,6 +225,20 @@ function formatCoordinate(year, month, day) {
   const mm = String(month).padStart(2, '0');
   const dd = String(day).padStart(2, '0');
   return `28X-${yy}-${mm}-${dd}`;
+}
+
+/**
+ * Format the public canonical coordinate. Intercalary days use ID/LID,
+ * while structured days retain 28X-YYYY-MM-DD.
+ */
+function formatCanonicalCoordinate(year, month, day) {
+  const yy = year < 0
+    ? `-${String(Math.abs(year)).padStart(4, '0')}`
+    : String(year).padStart(4, '0');
+  if (month === 0) {
+    return `28X-${yy}-${day === 0 ? 'ID' : 'LID'}`;
+  }
+  return formatCoordinate(year, month, day);
 }
 
 /**
@@ -238,4 +277,5 @@ module.exports = {
   coordinate28xToGregorian,
   parseCoordinate,
   formatCoordinate,
+  formatCanonicalCoordinate,
 };

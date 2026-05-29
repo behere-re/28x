@@ -26,9 +26,9 @@ export default function ConvertPage() {
           Conversion tools between 28x dates and other calendar systems will be available here in a future release.
         </p>
         <p>
-          The conversion algorithms are defined by the 28x Time Standard v0.1: the fixed epoch (28X-0001-01-01 
-          corresponding to the first 28-day New Year following the March equinox of 2026) and the regular cycle 
-          structure (13 × 28 days + 1 intercalary day per year).
+          The conversion algorithms are defined by the 28x Time Standard v0.1: the fixed epoch
+          (Gregorian 2026-03-20 UTC = 28X-0000-01-01), the regular cycle structure
+          (13 × 28 days + 1 intercalary day), and the 28x leap-year rule.
         </p>
         <p>
           The <a href="https://api.28x.org" target="_blank" rel="noopener noreferrer">28x Time API</a> is
@@ -39,4 +39,3 @@ export default function ConvertPage() {
     </div>
   )
 }
-

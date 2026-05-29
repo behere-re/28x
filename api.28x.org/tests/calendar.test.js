@@ -1,7 +1,13 @@
 const { describe, it } = require('node:test');
 const assert = require('node:assert/strict');
-const { gregorianTo28x, coordinate28xToGregorian, formatCoordinate } = require('../src/calendar/convert');
+const {
+  gregorianTo28x,
+  coordinate28xToGregorian,
+  formatCoordinate,
+  formatCanonicalCoordinate,
+} = require('../src/calendar/convert');
 const { isLeapYear, yearLength, EPOCH_MS, MS_PER_DAY } = require('../src/calendar/constants');
+const { validate28xCoordinate } = require('../src/calendar/validate');
 
 describe('28x Calendar Conversion', () => {
 
@@ -80,6 +86,8 @@ describe('28x Calendar Conversion', () => {
     assert.equal(t.year, 0);
     assert.equal(t.month, 0);
     assert.equal(t.day, 0);
+    assert.equal(t.coordinate, '28X-0000-00-00');
+    assert.equal(t.canonicalCoordinate, '28X-0000-ID');
     assert.equal(t.isIntercalary, true);
     assert.equal(t.season, null);
   });
@@ -148,6 +156,35 @@ describe('28x Calendar Conversion', () => {
 
 });
 
+describe('Intercalary Coordinates', () => {
+  it('formats canonical ID/LID coordinates', () => {
+    assert.equal(formatCanonicalCoordinate(0, 0, 0), '28X-0000-ID');
+    assert.equal(formatCanonicalCoordinate(4, 0, 1), '28X-0004-LID');
+    assert.equal(formatCanonicalCoordinate(-4, 0, 1), '28X--0004-LID');
+    assert.equal(formatCanonicalCoordinate(0, 3, 14), formatCoordinate(0, 3, 14));
+  });
+
+  it('accepts canonical and legacy intercalary coordinates', () => {
+    const canonical = coordinate28xToGregorian('28X-0000-ID').toISOString();
+    const legacy = coordinate28xToGregorian('28X-0000-00-00').toISOString();
+    assert.equal(canonical, legacy);
+  });
+
+  it('round-trips a leap intercalary day with canonical output', () => {
+    const date = coordinate28xToGregorian('28X-0004-LID');
+    const result = gregorianTo28x(date);
+    assert.equal(result['28x'].coordinate, '28X-0004-00-01');
+    assert.equal(result['28x'].canonicalCoordinate, '28X-0004-LID');
+  });
+
+  it('rejects LID for non-leap years', () => {
+    const validation = validate28xCoordinate('28X-0001-LID');
+    assert.equal(validation.valid, false);
+    assert.equal(validation.code, 'INVALID_LEAP_INTERCALARY');
+    assert.throws(() => coordinate28xToGregorian('28X-0001-LID'));
+  });
+});
+
 describe('Leap Year Logic', () => {
   it('Year 0 is NOT a leap year', () => {
     assert.equal(isLeapYear(0), false);
@@ -165,5 +202,15 @@ describe('Leap Year Logic', () => {
 
   it('Year 8 IS a leap year', () => {
     assert.equal(isLeapYear(8), true);
+  });
+
+  it('Year 100 IS a leap year under the 28x rule', () => {
+    assert.equal(isLeapYear(100), true);
+    assert.equal(yearLength(100), 366);
+  });
+
+  it('Year -4 IS a leap year under the 28x rule', () => {
+    assert.equal(isLeapYear(-4), true);
+    assert.equal(yearLength(-4), 366);
   });
 });

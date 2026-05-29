@@ -6,13 +6,22 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "test": "node --test tests/calendar.test.js"
+    "test": "node --test tests/*.test.js"
   },
-  "keywords": ["28x", "calendar", "temporal", "time", "api"],
+  "keywords": [
+    "28x",
+    "calendar",
+    "temporal",
+    "time",
+    "api"
+  ],
   "license": "MIT",
   "dependencies": {
-    "express": "^4.21.0",
-    "cors": "^2.8.5"
+    "@x402-avm/avm": "^2.6.1",
+    "@x402-avm/core": "^2.6.1",
+    "@x402-avm/express": "^2.6.1",
+    "cors": "^2.8.5",
+    "express": "^4.21.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"

@@ -25,6 +25,7 @@ const SEASON_DAY_RANGES = {
 };
 
 function isLeapYear(year) {
+  // 28x uses an internal leap rule: every fourth year except Year 0000.
   if (year === 0) return false;
   return year % 4 === 0;
 }

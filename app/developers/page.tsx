@@ -41,6 +41,11 @@ export default function DevelopersPage() {
           </tr>
           <tr>
             <td><code>GET</code></td>
+            <td><code>/premium/convert</code></td>
+            <td>x402-protected premium conversion with attestation</td>
+          </tr>
+          <tr>
+            <td><code>GET</code></td>
             <td><code>/season</code></td>
             <td>Season information for a 28x year</td>
           </tr>
@@ -62,7 +67,7 @@ export default function DevelopersPage() {
 
       <h2>GET /now</h2>
       <p>Returns the current moment in 28x time. No query parameters.</p>
-      <p><strong>Response shape:</strong> <code>gregorian</code> (iso, unix, date, time), <code>28x</code> (coordinate, year, month, day, season, seasonDay, humanReadable, isIntercalary, isLeapYear, dayOfYear, daysRemainingInYear, daysRemainingInMonth, daysRemainingInSeason), <code>meta</code> (epochGregorian, totalDaysSinceEpoch, apiVersion).</p>
+      <p><strong>Response shape:</strong> <code>gregorian</code> (iso, unix, date, time), <code>28x</code> (coordinate, canonicalCoordinate, year, month, day, season, seasonDay, humanReadable, isIntercalary, isLeapYear, dayOfYear, daysRemainingInYear, daysRemainingInMonth, daysRemainingInSeason), <code>meta</code> (epochGregorian, totalDaysSinceEpoch, apiVersion).</p>
 
       <h2>GET /convert</h2>
       <p>Convert a Gregorian date to 28x, or a 28x coordinate to Gregorian.</p>
@@ -70,11 +75,17 @@ export default function DevelopersPage() {
       <ul>
         <li><code>from</code> (required): <code>gregorian</code> | <code>28x</code> | <code>unix</code></li>
         <li>If <code>from=gregorian</code>: <code>date</code> — ISO date or datetime (e.g. <code>2026-03-20</code> or <code>2026-03-20T14:32:00Z</code>)</li>
-        <li>If <code>from=28x</code>: <code>coordinate</code> — 28x coordinate (e.g. <code>28X-0000-01-15</code>)</li>
+        <li>If <code>from=28x</code>: <code>coordinate</code> — 28x coordinate (e.g. <code>28X-0000-01-15</code>, <code>28X-0000-ID</code>, or legacy <code>28X-0000-00-00</code>)</li>
         <li>If <code>from=unix</code>: <code>timestamp</code> — Unix timestamp in seconds</li>
       </ul>
       <p><strong>Example:</strong> <code>GET /convert?from=gregorian&amp;date=2026-03-20</code></p>
       <p><strong>Response:</strong> Same shape as <code>/now</code> for the given moment. Pre-epoch dates include <code>28x.preEpoch</code>, <code>28x.daysBeforeEpoch</code>, <code>28x.isTransitionDay</code>.</p>
+
+      <h2>GET /premium/convert</h2>
+      <p>x402-protected conversion endpoint for paid agent and developer workflows.</p>
+      <p><strong>Query parameters:</strong> Same as <code>/convert</code>.</p>
+      <p><strong>Payment:</strong> Requires x402 payment when configured by the API operator. The initial unpaid response returns HTTP <code>402</code> with payment requirements.</p>
+      <p><strong>Response:</strong> <code>premium</code>, <code>product</code>, <code>conversion</code> (same shape as <code>/now</code>), <code>attestation</code> (id, issuedAt, source, standard, hashAlgorithm), and <code>payment</code> metadata.</p>
 
       <h2>GET /season</h2>
       <p>Returns full season information for a 28x year.</p>
@@ -82,7 +93,8 @@ export default function DevelopersPage() {
       <ul>
         <li><code>year</code> (optional): 28x year number (e.g. <code>0</code>). Defaults to current 28x year.</li>
       </ul>
-      <p><strong>Response:</strong> <code>year</code>, <code>seasons</code> (spring, summer, autumn, winter: name, startGregorian, endGregorian, start28x, end28x, durationDays), <code>intercalaryDays</code>, <code>isLeapYear</code>, <code>totalDays</code>.</p>
+      <p><strong>Leap rule:</strong> 28x years divisible by 4 are leap years, except Year 0000.</p>
+      <p><strong>Response:</strong> <code>year</code>, <code>seasons</code> (spring, summer, autumn, winter: name, startGregorian, endGregorian, start28x, end28x, durationDays), <code>intercalaryDays</code> (coordinate, canonicalCoordinate, gregorian, label), <code>isLeapYear</code>, <code>totalDays</code>.</p>
 
       <h2>GET /afn-coordinate</h2>
       <p>Returns the 28x coordinate and mint recommendation for AFN (A Field Note) metadata.</p>

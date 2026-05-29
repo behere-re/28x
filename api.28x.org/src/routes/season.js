@@ -8,6 +8,7 @@ const {
 const {
   coordinate28xToGregorian,
   formatCoordinate,
+  formatCanonicalCoordinate,
 } = require('../calendar/convert');
 const { validateYear } = require('../calendar/validate');
 const { gregorianTo28x } = require('../calendar/convert');
@@ -57,6 +58,7 @@ router.get('/', (req, res) => {
   const id0Greg = coordinate28xToGregorian(id0Coord);
   intercalaryDays.push({
     coordinate: id0Coord,
+    canonicalCoordinate: formatCanonicalCoordinate(year, 0, 0),
     gregorian: id0Greg.toISOString().split('T')[0],
     label: 'Day Out of Time',
   });
@@ -66,6 +68,7 @@ router.get('/', (req, res) => {
     const id1Greg = coordinate28xToGregorian(id1Coord);
     intercalaryDays.push({
       coordinate: id1Coord,
+      canonicalCoordinate: formatCanonicalCoordinate(year, 0, 1),
       gregorian: id1Greg.toISOString().split('T')[0],
       label: 'Leap Day Out of Time',
     });
